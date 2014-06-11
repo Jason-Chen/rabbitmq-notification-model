@@ -5,8 +5,10 @@ EventMachine.run do
   channel    = AMQP::Channel.new(connection)
 
   # Root
-  exCheckVaild = channel.fanout("checkVaild")
+  exVaildChat = channel.topic("vaildChat", :durable => true)
   EventMachine.add_periodic_timer(1) do
-    exCheckVaild.publish('hello client1 ' + Time.now.to_s, :routing_key => "chat.client1ID", :persistent => true, :nowait => false)
+    msg = 'hello client1 ' + Time.now.to_s
+    exVaildChat.publish(msg, :routing_key => "chat.client1ID", :persistent => true, :nowait => false)
+    puts "[X] Publish: #{msg}"
   end
 end
