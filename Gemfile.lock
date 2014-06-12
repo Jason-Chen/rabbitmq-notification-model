@@ -6,11 +6,9 @@ GEM
       amq-protocol (>= 1.9.2)
       eventmachine
     eventmachine (1.0.3)
-    mqtt (0.2.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   amqp
-  mqtt

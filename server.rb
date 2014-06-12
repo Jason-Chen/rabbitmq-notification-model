@@ -15,5 +15,5 @@ EventMachine.run do
   channel.queue("client1Device2Queue").bind(exVaildChat, :routing_key => "chat.client1ID")
 
   # client2
-  channel.queue("client2Device1Queue").bind(exVaildChat, :routing_key => "chat.client1ID")
+  channel.queue("client2Device1Queue").bind(exVaildChat, :routing_key => "chat.client2ID")
 end
