@@ -5,7 +5,7 @@ EventMachine.run do
   channel    = AMQP::Channel.new(connection)
 
   # DB
-  queue = channel.queue("ChatDB")
+  queue = channel.queue("chatDB")
   queue.subscribe do |header, body|
     puts " [x] #{header.routing_key}:#{body}"
   end
